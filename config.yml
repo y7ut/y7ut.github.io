@@ -1,5 +1,5 @@
 baseURL: 'https://y7ut.github.io'
-title: Yichu🎴
+title: 还是偶尔想要伟大
 theme: hugo-theme-ladder
 license: MIT
 licenselink: 'https://github.com/guangzhengli/hugo-theme-ladder/blob/master/LICENSE'
@@ -18,16 +18,16 @@ menu:
     - name: Archive
       url: /archives
       weight: 3
-    - name: Guestbook
-      url: /guestbook
-      weight: 4
+    # - name: Guestbook
+    #   url: /guestbook
+    #   weight: 4
 params:
   brand: HOME
   avatarURL: /images/yichu.jpg
   author: 易初
   authorDescription: 'RUN RUN RUN'
   info: '🎞还是偶尔想要伟大'
-  favicon: /images/yichu.jpg
+  favicon: /images/robot.ico
   options:
     showDarkMode: true
     enableImgZooming: true
