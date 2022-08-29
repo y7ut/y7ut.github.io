@@ -21,9 +21,9 @@ menu:
 params:
   brand: HOME
   avatarURL: /images/yichu.jpg
-  author: 易初
+  author: Yichu
   authorDescription: 'RUN RUN RUN'
-  info: '🎞还是偶尔想要伟大'
+  info: '🎞 Also want to be great'
   favicon: /images/robot.ico
   options:
     showDarkMode: true
