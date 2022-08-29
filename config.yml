@@ -23,7 +23,7 @@ params:
   avatarURL: /images/yichu.jpg
   author: Yichu
   authorDescription: 'RUN RUN RUN'
-  info: '🎞 Also want to be great'
+  info: '🎞 Sometimes,I still wanna be great'
   favicon: /images/robot.ico
   options:
     showDarkMode: true
