@@ -1,6 +1,6 @@
 ---
 date: 2022-08-29T12:14:34+08:00
-title: "如何设计容器的 Entrypoint 🚪"
+title: "How to design a Docker image entrypoint 🚪"
 description: "根据php-fpm-entrypoint学习如何设计容器的入口文件"
 tags: ["bash", "docker"]
 series: []
