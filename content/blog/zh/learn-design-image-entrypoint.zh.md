@@ -7,10 +7,9 @@ series: []
 featured: true
 ---
 
+在整理 php-fpm 官方镜像构建方式的时候，注意到了入口文件 docker-php-entrypoint 的设计。
 
-在整理 php-fpm 官方镜像构架方法的时候，注意到了一个入口文件 docker-php-entrypoint， 和 DockerFile 的设计。
-
-为什么要这样设计呢，为镜像制作 entrypoint 的好处是什么的呢？🤔️我们来研究一下
+为什么要这样设计呢，为镜像制作 entrypoint 的好处是什么的呢？🤔️我们来研究一下。
 
 <!--more-->
 
@@ -148,7 +147,7 @@ ${1%%*-} # 去除掉右面数最后一个一个（左面第一个）- 和左面�
 > Signal the end of options, cause all remaining arguments to be assigned to the positional parameters. The -x and -v options are turned off. If there are no arguments, the positional parameters remain unchanged.
 >
 
-`set -` 如果后续没有 `set -` 参数，**不改变**本身传递的参数，但如果设置了参数，同样会依次赋值给位置参数 `${1}、${2}...` ，不过在使用后使用`set  -xv`不会在打印输出脚本的调试信息，意味着确认输入参数的阶段已经结束
+`set -` 如果后续没有 `set -` 参数，**不改变**本身传递的参数，但如果设置了参数，同样会依次赋值给位置参数 `${1}、${2}...` ，不过在使用后使用`set  -xv`不会在打印输出脚本的调试信息，意味着确认输入参数的阶段已经结束。
 
 ```bash
 #!/bin/bash
@@ -163,4 +162,4 @@ set --  "$@" ok  # 在所有参数后放置ok
 
 我们回到当前的脚本中，发现如果输入的参数是 `-` 开头的话，那么 `$@` 就变为了  `php-fpm` + `$@` 然后 通过`exec “$@”` 被执行。假如输入的是一个其他的完整的命令，或者可执行文件，则不会被替换掉，可以通过 `exec` 直接执行 `$@`。
 
-所以利用 Dockerfile 中 `ENTRYPOINT` 和 `CMD` 的特性，默认镜像会在容器启动的时，启动 php-fpm 服务，但我们也可以替换 `CMD` 传入 `-v` 来实现 替换原本的`CMD[’php-fpm’],` 来通过入口文件获取 ph 的版本。
+所以利用 Dockerfile 中 `ENTRYPOINT` 和 `CMD` 的特性，默认镜像会在容器启动的时，启动 php-fpm 服务，但我们也可以替换 `CMD` 传入 `-v` 来实现 替换原本的`CMD[’php-fpm’],` 来通过入口文件获取 php 的版本。
