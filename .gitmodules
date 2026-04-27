@@ -1,3 +1,4 @@
 [submodule "themes/hugo-theme-ladder"]
 	path = themes/hugo-theme-ladder
 	url = https://github.com/guangzhengli/hugo-theme-ladder
+	branch = v1.0.1
